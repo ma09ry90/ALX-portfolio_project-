@@ -1,0 +1,246 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "poppins", sans-serif;
+}
+body {
+background: url("/static/images/ushelfbg.jpg") !important;
+background-size: cover !important;
+background-position: center !important;
+background-repeat: no-repeat !important;
+min-height: 100vh; /* Ensure the body has height */
+display: flex;
+justify-content: center;
+align-items: center;
+background-attachment: fixed;
+margin-top: 80px;
+}
+.wrapper {
+  display: flex;
+  width: 420px;
+  background: transparent;
+  color: black;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  box-shadow: black;
+  border: 2px solid grey;
+  padding: 30px 40px;
+}
+.wrapper h1 {
+  font-size: 36px;
+  text-align: center;
+}
+.wrapper .input_box {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  margin: 20px 0 15px;
+}
+.input_box input {
+  width: 100%;
+  height: 100%;
+  background: white;
+  border: none;
+  outline: none;
+  border: 2px solid black;
+  border-radius: 40px;
+  padding: 20px 45px 20px 20px;
+}
+.input_box .input::placeholder {
+  color: black;
+}
+.input_box i {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  color: black;
+  transform: translateY(-50%);
+  font-size: 20px;
+}
+.wrapper .btn{
+  width: 100%;
+  height: 45px;
+  background:white;
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  box-shadow: 0 0 10px black;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+}
+.wrapper .register_link{
+  font-size: 14.5px;
+  text-align: center;
+  margin-top: 20px;
+}
+.register_link p{
+  color: beige;
+}
+.register_link p a {
+  color:white;
+  text-decoration: none;
+  font-weight: 600;
+}
+.register_link p a:hover {
+  text-decoration: underline;
+  color: #f90707;
+}
+
+/* Header and navigation styling */
+header {
+  background-color: rgba(0, 0, 0, 0.7); /* Dark background for contrast */
+  color: white;
+  padding: 10px;
+  text-align: center;
+  font-size: 1.5em;
+  position: fixed; /* Fix the header to the top */
+  top: 0;
+  width: 100%;
+  z-index: 1000; /* Ensures the header stays on top of other elements */
+}
+
+#nab {
+  margin-top: 10px;
+}
+
+#nab a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: white;
+  font-size: 1.2em;
+}
+
+#nab a:hover {
+  text-decoration: underline;
+}
+
+/* Styling for the main section */
+main {
+  padding: 20px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #fff; /* Make sure the heading is readable */
+  text-align: center;
+}
+
+.book-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center; /* Center the book items */
+}
+
+.book-item {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 20px;
+  width: 250px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s;
+  color: white;
+}
+
+.book-item h3, .book-item p {
+  color: white;
+}
+
+.book-item:hover {
+  transform: scale(1.05); /* Slightly enlarge the card on hover */
+}
+
+.book-item h3 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.book-item p {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.book-content {
+  margin-top: 10px;
+}
+
+.file:hover {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Enlarged state for images and PDFs */
+.enlarged {
+  width: 90vw !important;
+  height: 90vh !important;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  cursor: zoom-out;
+}
+
+/* Add styles for download links */
+a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+/* Responsive styles to ensure layout works well on all devices */
+.file {
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  /* Make sure the element looks clickable */
+}
+
+.file:fullscreen {
+  /* Full-screen mode styling */
+  width: 100%;
+  height: 100%;
+}
+
+.file:-webkit-full-screen {
+  /* Full-screen mode styling for webkit browsers (Chrome, Safari) */
+  width: 100%;
+  height: 100%;
+}
+
+.file:-moz-full-screen {
+  /* Full-screen mode styling for Firefox */
+  width: 100%;
+  height: 100%;
+}
+
+/* Make sure the body content starts after the header */
+body {
+    margin-top: 80px; /* Adjust this value based on the header height */
+}
+
+/* Style for the buttons */
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff; /* Button background color */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 5px 0; /* Add some space between the buttons */
+    text-align: center;
+}
+
+/* Ensure the page can be scrolled */
+body, html {
+    height: 100%;
+    overflow-y: auto;
+}
