@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ushelf - Organize Your Digital Library</title>
+  <style>
+    /* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+header {
+  background: #333;
+  color: #fff;
+  padding: 10px 20px;
+}
+
+header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .logo h1 {
+  margin: 0;
+}
+
+header .nav-links {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+header .nav-links li {
+  margin-left: 20px;
+}
+
+header .nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+header .btn-signup {
+  background: #f04e31;
+  padding: 8px 15px;
+  border-radius: 4px;
+}
+
+.hero {
+  background-image: url("{{ url_for('static', filename='images/background.jpg') }}");  
+  background-size: cover;
+  background-position: center;
+  color: white;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-content h2 {
+  font-size: 3em;
+  margin-bottom: 20px;
+}
+
+.hero-content p {
+  font-size: 1.2em;
+  margin-bottom: 30px;
+}
+
+.hero-content .btn {
+  background: #f04e31;
+  color: #fff;
+  padding: 15px 30px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 1.2em;
+}
+
+.features {
+  padding: 60px 20px;
+  background: #f9f9f9;
+  text-align: center;
+}
+
+.features h3 {
+  font-size: 2.5em;
+  margin-bottom: 50px;
+}
+
+.feature-cards {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.feature-card {
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 30%;
+  margin-bottom: 20px;
+}
+
+.feature-card h4 {
+  font-size: 1.5em;
+  margin-bottom: 15px;
+}
+
+.cta {
+  background: #333;
+  color: #fff;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.cta h3 {
+  font-size: 2.5em;
+  margin-bottom: 30px;
+}
+
+.cta .btn {
+  background: #f04e31;
+  color: #fff;
+  padding: 15px 30px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 1.2em;
+}
+
+footer {
+  background: #222;
+  color: #aaa;
+  text-align: center;
+  padding: 20px 0;
+}
+
+  </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>Ushelf</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="{{ url_for('login') }}">Login</a></li>
+                <li><a href="{{ url_for('about')}}">About</a></li>
+                <li><a href="{{ url_for('signup') }}" class="btn-signup">Sign Up</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Organize Your Digital Library with Ushelf</h2>
+            <p>Create, organize, and share your digital bookshelves effortlessly. Set reading schedules and get reminders.</p>
+            <a href="{{ url_for('login') }}" class="btn">Get Started</a>
+        </div>
+    </section>
+
+    <section class="features">
+        <h3>Why Choose Ushelf?</h3>
+        <div class="feature-cards">
+            <div class="feature-card">
+                <h4>Easy to Use</h4>
+                <p>Upload and organize your books in a few clicks.</p>
+            </div>
+            <div class="feature-card">
+                <h4>Share with Friends</h4>
+                <p>Invite others to access your bookshelf and read together.</p>
+            </div>
+            <div class="feature-card">
+                <h4>Stay on Track</h4>
+                <p>Set up a reading calendar with notifications to keep you on schedule.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <h3>Start Organizing Your Digital Library Today!</h3>
+        <a href="{{ url_for('signup') }}" class="btn">Create an Account</a>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Ushelf. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

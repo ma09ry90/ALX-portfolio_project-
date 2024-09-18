@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Ushelf</title>
+    <style>
+      /* Reset some default styles */
+body, h1, h2, p, ul, li {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: black;
+}
+
+/* Style for the header */
+header {
+    background-color: #333; /* Dark background for the header */
+    color: #fff;            /* White text for the header */
+    padding: 1rem 0;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+}
+
+header h1 {
+    margin-bottom: 10px;    /* Space between title and navigation */
+    font-size: 2rem;        /* Larger font size for the title */
+}
+
+nav#nab {
+    display: flex;          /* Align navigation links horizontally */
+    justify-content: center; /* Center the navigation */
+    gap: 20px;              /* Space between each link */
+    margin-top: 10px;       /* Space above the navigation bar */
+}
+
+nav#nab a {
+    color: #fff;            /* White text color for the links */
+    text-decoration: none;  /* Remove default underline */
+    padding: 10px 15px;     /* Add padding around each link */
+    font-size: 1.1rem;      /* Slightly larger font for better visibility */
+    background-color: #444; /* Background color for the links */
+    border-radius: 5px;     /* Rounded corners for the links */
+    transition: background-color 0.3s ease; /* Smooth transition on hover */
+}
+
+nav#nab a:hover {
+    background-color: #555; /* Darker background on hover */
+    color: #f4f4f4;         /* Lighter text color on hover */
+}
+
+main {
+    padding: 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.intro, .author {
+    margin-bottom: 2rem;
+}
+
+.intro h2, .author h2 {
+    border-bottom: 2px solid #2f08f4;
+    padding-bottom: 0.5rem;
+}
+
+.author-image {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin: 1rem 0;
+}
+
+.author ul {
+    list-style: none;
+    padding: 0;
+}
+
+.author ul li {
+    margin: 0.5rem 0;
+}
+
+.author ul li a {
+    color: #2708f6;
+    text-decoration: none;
+}
+
+.author ul li a:hover {
+    text-decoration: underline;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <h1>About Ushelf</h1>
+        <nav id="nab">
+          <a href="{{ url_for('landing') }}" style="color: #fff;">Home</a>
+          <a href="{{ url_for('dashboard')}}" style="color: #fff;">My_shelf</a>
+          <a href="{{ url_for('schedule')}}" style="color: #fff;">My_schedule</a>
+          <a href="{{ url_for('invite')}}" style="color:#fff ;">Add people</a>
+          <a href="{{ url_for('about')}}" style="color:#fff ;">About</a>
+          <a href="{{ url_for('logout') }}" style="color: #fff;">Logout</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="intro">
+            <h2>Welcome to Ushelf</h2>
+            <p>Ushelf is a digital platform designed to help users organize their books and files as they would on a physical shelf at home or in the office. With Ushelf, you can upload files, arrange them digitally, and invite others to view and access your shelves. The platform ensures the safety and accessibility of your files from any device, anywhere.</p>
+        </section>
+
+        <section class="author">
+            <h2>About Me</h2>
+            <img src="static\images\mary-mengistu.jpg" alt="Mary Mengistu" class="author-image">
+            <p>My name is Mary Mengistu, and I am currently a student at Jimma University, also taking an ALX Software Engineering course. This project is part of my portfolio for the ALX course.</p>
+            <p>Through Ushelf, I aimed to address the challenge of organizing digital files effectively, inspired by my personal experiences with physical file management. Despite the complexities encountered during development, this project has been a valuable learning experience, showcasing my skills and dedication.</p>
+            <p>Feel free to connect with me:</p>
+            <ul>
+                <li><a href="https://www.linkedin.com/in/mary-mengistu-257a66329/">LinkedIn Profile</a></li>
+            </ul>
+        </section>
+    </main>
+</body>
+</html>

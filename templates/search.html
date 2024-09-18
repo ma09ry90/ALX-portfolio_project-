@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Search Books</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+        font-family: Arial, sans-serif;
+        color: #333;               /* Dark text color */
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Center content horizontally */
+    }
+        form {
+        background-color: #fff;
+        padding: 2rem;
+        margin-top: 2rem;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+        border-radius: 10px;
+        width: 100%;
+        max-width: 500px; /* Max width for the form */
+    }
+    
+    h2 {
+        text-align: center;
+        color: #333;
+    }
+    
+    /* Style for the form labels and inputs */
+    label {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: #333;
+        font-weight: bold;
+    }
+    
+    input[type="text"],
+    select {
+        width: 100%; /* Full width for inputs */
+        padding: 10px;
+        margin-bottom: 1.5rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 1rem;
+        background-color: #f9f9f9;
+    }
+    
+    button {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        background-color: #28a745; /* Green button */
+        color: white;
+        font-size: 1.2rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    
+    button:hover {
+        background-color: #218838;
+    }
+        </style>
+</head>
+
+<header>
+    <h1>Welcome to Your Dashboard</h1>
+    <nav>
+        <a href="{{ url_for('dashboard')}}">My_shelf</a>
+        <a href="{{ url_for('schedule')}}">My_schedule</a>
+        <a href="{{ url_for('invite')}}">Add people</a>
+        <a href="{{ url_for('about')}}">About</a>
+        <a href="{{ url_for('logout') }}">Logout</a>
+    </nav>
+</header>
+
+<body>
+    <h2>Search Books</h2>
+    <form method="GET" action="{{ url_for('search') }}">
+        <input type="text" name="query" placeholder="Search by book or author" required><br>
+        <button type="submit">Search</button>
+    </form>
+    <ul>
+        {% for book in books %}
+            <li>
+                <strong>{{ book.title }}</strong> by {{ book.author }}
+    
+                <!-- Display file depending on its type -->
+                <div class="book-content">
+                    {% if book.file_path.endswith('.pdf') %}
+                        <!-- PDF Preview -->
+                        <iframe src="{{ url_for('uploaded_file', filename=book.file_path) }}" width="100%" height="400"></iframe>
+                    {% elif book.file_path.endswith(('.jpg', '.jpeg', '.png')) %}
+                        <!-- Image Preview -->
+                        <img src="{{ url_for('uploaded_file', filename=book.file_path) }}" alt="Book Image" style="width:100%; max-width:600px;">
+                    {% else %}
+                        <!-- Download Link for other files -->
+                        <a href="{{ url_for('uploaded_file', filename=book.file_path) }}" download>Download File</a>
+                    {% endif %}
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+    
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+  <!-- Header fixed at the top -->
+  <header>
+    <h1>Welcome to Your USHELF</h1>
+    <nav id="nab">
+      <a href="{{ url_for('landing') }}">Home</a>
+      <a href="{{ url_for('dashboard')}}">My_shelf</a>
+      <a href="{{ url_for('schedule')}}">My_schedule</a>
+      <a href="{{ url_for('invite')}}">Add people</a>
+      <a href="{{ url_for('about')}}">About</a>
+      <a href="{{ url_for('logout') }}">Logout</a>
+    </nav>
+  </header>
+
+  <!-- Main content starts here, below the header -->
+  <main>
+    <h2>Your Books</h2>
+    <a href="{{ url_for('upload') }}" class="button">Upload New Book</a><br>
+    <a href="{{ url_for('search') }}" class="button">Search Books</a>
+
+    <!-- Section for uploaded books -->
+    <section>
+      <h2 style="color: black;">Your Uploaded Books</h2>
+      <div class="book-list">
+        {% for book in books %}
+          <div class="book-item">
+            <h3>{{ book.title }}</h3>
+            <p>Author: {{ book.author }}</p>
+            <p>Category: {{ book.category }}</p>
+            
+            <div class="book-content">
+                {% if book.file_path.endswith('.pdf') %}
+                  <!-- PDF with full-screen toggle on icon click -->
+                  <iframe src="{{ url_for('uploaded_file', filename=book.file_path) }}" class="file" style="width: 200px; height: 300px;"></iframe>
+                  <span onclick="toggleFullScreen(document.querySelector('.file'))">🔍 Full-Screen</span>
+                {% elif book.file_path.endswith(('.jpg', '.jpeg', '.png')) %}
+                  <!-- Image with full-screen toggle on icon click -->
+                  <img src="{{ url_for('uploaded_file', filename=book.file_path) }}" alt="Book Image" class="file" style="width: 200px; height: 300px;">
+                  <span onclick="toggleFullScreen(document.querySelector('.file'))">🔍 Full-Screen</span>
+                {% endif %}
+              </div>              
+              
+          </div>
+        {% endfor %}
+      </div>
+    </section>
+  </main>
+  <script>
+    function toggleFullScreen(element) {
+        if (!document.fullscreenElement) {
+            // Enter full-screen mode
+            if (element.requestFullscreen) {
+                element.requestFullscreen();
+            } else if (element.mozRequestFullScreen) {
+                element.mozRequestFullScreen();
+            } else if (element.webkitRequestFullscreen) {
+                element.webkitRequestFullscreen();
+            } else if (element.msRequestFullscreen) {
+                element.msRequestFullscreen();
+            }
+        } else {
+            // Exit full-screen mode
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            }
+        }
+    }
+</script>
+
+</body>
+</html>
